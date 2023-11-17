@@ -1,0 +1,49 @@
+//rockpapersissors
+
+const playerText=document.queryselector("#PlayerText");
+const computerText=document.queryselector("#computerText");
+const resultText=document.queryselector("#resultText");
+const choiceBtns=document.queryselector(".choiceBtns");
+let player;
+let computer;
+let result;
+
+choiceBtns.forEach(button => button.addEventlisteners("click," () => {
+
+    player = button.textContent;
+    computerTurn();
+}));
+
+function computerTurn(){
+    const randNum=Math.floor(Math.random()*3)+1;
+    
+    switch(randNum){
+        case 1:
+        computer =  "Rock";
+        break;
+        case 2:
+        computer =  "Paper";
+        break;
+        case 3:
+        computer =  "Sissors";
+        break;
+    }
+}
+
+function checkWinner(){
+if(player == computer){
+    return"Draw!"
+}
+else if (computer=="Rock"){
+    return(player=="paper")?"You Win!":"You Lose!"
+
+}
+else if (computer=="Paper"){
+    return(player=="Sissors")?"You Win!":"You Lose!"
+}
+    else if (computer=="Sissors"){
+        return(player=="Rock")?"You Win!":"You Lose!"
+
+}
+
+}
